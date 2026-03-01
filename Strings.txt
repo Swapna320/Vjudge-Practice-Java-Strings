@@ -1,0 +1,245 @@
+1)Reverse a string
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        char[] arr = new char[s.length()];
+        // Copy string characters into array
+        for (int i = 0; i < s.length(); i++) {
+            arr[i] = s.charAt(i);
+        }
+        int i = 0;
+        int j = arr.length - 1;
+        // Reverse in-place using swapping
+        while (i < j) {
+            char temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+
+            i++;
+            j--;
+        }
+        // Print reversed string
+        for (int k = 0; k < arr.length; k++) {
+            System.out.print(arr[k]);
+        }
+    }
+}
+---------------------------------------------------------------------
+2)Odd Even Index
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        // Prints odd index characters
+        for (int i = 1; i < s.length(); i += 2) {
+            System.out.print(s.charAt(i));
+        }
+        // Prints even index characters
+        for (int i = 0; i < s.length(); i += 2) {
+            System.out.print(s.charAt(i));
+        }
+    }
+}
+-------------------------------------------------------------------------
+3)Occurance of a character
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();  
+        char ch = sc.nextLine().charAt(0);  
+
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == ch) {
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
+-----------------------------------------------------------------------------------------
+4)Vowels in a string
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        boolean Vowels = true;
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (!(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+                  ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')) {
+                Vowels = false;
+                break;
+            }
+        }
+        if (Vowels) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+--------------------------------------------------------------------------------------------
+5)Digits in a string
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        boolean Digits = true;
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+
+            if (ch < '0' || ch > '9') {
+                Digits = false;
+                break;
+            }
+        }
+        if (Digits) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+-------------------------------------------------------------------------------------------
+6)Count vowels and consonents
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int vowels = 0;
+        int consonants = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            // Check if character is alphabet
+            if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+
+                // Check vowel
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+                    ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+                    vowels++;
+                } else {
+                    consonants++;
+                }
+            }
+        }
+        System.out.println(vowels + " " + consonants);
+    }
+}
+-------------------------------------------------------------------------------------------------
+7)Compress a string
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int count = 1;
+        for (int i = 0; i < s.length(); i++) {
+            if (i < s.length() - 1 && s.charAt(i) == s.charAt(i + 1)) {
+                count++;
+            } else {
+                System.out.print(s.charAt(i));
+                System.out.print(count);
+                count = 1;  
+            }
+        }
+    }
+}
+---------------------------------------------------------------------------------------------------
+8)K - Words, Vowels and Consonants 
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int T = sc.nextInt();
+        sc.nextLine();  
+
+        while (T > 0) {
+            String s = sc.nextLine().trim();  // remove extra spaces
+
+            int words = 0;
+            int vowels = 0;
+            int consonants = 0;
+
+            if (s.length() > 0) {
+                words = 1;  // at least one word
+            }
+
+            for (int i = 0; i < s.length(); i++) {
+                char ch = s.charAt(i);
+
+                if (ch == ' ') {
+                    words++;
+                }
+
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+                    ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+                    vowels++;
+                }
+                else if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+                    consonants++;
+                }
+            }
+
+            System.out.println(words + " " + vowels + " " + consonants);
+            T--;
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------------------------
+9) Prefix and suffix 
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String s = sc.nextLine();
+        int n = s.length();
+        int maxLength = 0;
+        for (int len = n - 1; len > 0; len--) {
+            String prefix = s.substring(0, len);
+            String suffix = s.substring(n - len, n);
+            if (prefix.equals(suffix)) {
+                maxLength = len;
+                break;
+            }
+        }
+        System.out.println(maxLength);
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------
+10)Toggle case of characters
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch >= 'a' && ch <= 'z') {
+                ch = (char)(ch - 32);
+            }
+            else if (ch >= 'A' && ch <= 'Z') {
+                ch = (char)(ch + 32);
+            }
+            System.out.print(ch);
+        }
+    }
+}
+---------------------------------------------------------------------------------------------------------------------
